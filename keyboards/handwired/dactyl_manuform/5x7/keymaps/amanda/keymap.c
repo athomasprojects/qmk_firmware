@@ -20,6 +20,7 @@
 #define _POG    2
 #define _FN     3
 #define _NUMPAD 4
+#define _GAMING 5
 
 // Some basic macros
 #define TASK    LCTL(LSFT(KC_ESC))
@@ -96,25 +97,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /*
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   =    |   1  |   2  |   3  |   4  |   5  | LEFT |           | RIGHT|   6  |   7  |   8  |   9  |   0  |   -    |
+ * |   |    |  +/1  | [/2 | {/3  | (/4  |  &/5 | Reset|           |      | =/6  | )/7  | }/8  | }/9  | ast/0|  !/%   |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Del    |   Q  | W    |   E  |   R  |   T  |Insrt |           | LDR  |   Y  |   U  |   I  |   O  |   P  |   \    |
+ * | Tab    |   Q  | W    |   F  |   P  |   B  | Home |           | End  |   J  |   L  |   U  |   Y  |   -  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * | Grv    |   A  |   S  |   D  | F/Alt|   G  |------|           |------|   H  | J/Alt| K/POG|   L  |; / L2|   '    |
- * |--------+------+------+------+------+------| Hyper|           | Meh  |------+------+------+------+------+--------|
- * | LShift | Ctrl |x:M_CS|   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |//LGUI|  POG   |
+ * | Esc    |   A  |   R  |   S  | T/Alt|   G  |------|           |------|   M  | N/Alt| E/POG|   I  |   O  | ;/POG  |
+ * |--------+------+------+------+------+------|  '"  |           | FN   |------+------+------+------+------+--------|
+ * | LShift | Z:CS | X:POG|   C  |   D  |   V  |      |           |      |   K  |   H  |   ,  |   .  |//LGUI| RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      |  '"  |AltShf| Left | Right|                                       |  Up  | Down |   [  |   ]  | RShift |
+ *   |NUMPAD|  $   | Left | Right|      |                                       |      | Up   | Down |  /   |   @/^  |
  *   `----------------------------------'                                       `------------------------------------'
  *
- *                                .--------------------.         .---------------.------.
- *                                |      |      |      |         |        |      | ESC  |
- *                                |------| SPC  |  BS  |         |  Tab   |Enter |------|
- *                                |      |      |      |         |        |      |      |
- *                                '------|-------------|         |---------------'------'
- *                                       | LEFT | RGHT |         |   UP   | DOWN |
- * 
- *                                       '------'------'         '--------'------'
+ *                                .--------------------.         .--------------------.
+ *                                | BSPC | LCTRL| POG  |         | RCTRL| ENTER| SPC  |
+ *                                |------|------|------|         |------|------|------|
+ *                                | VIM  |LShift| RWIN |         | DOWN |  UP  | LGUI |
+ *                                ----------------------         ----------------------
  *
  *
  */
@@ -130,17 +128,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                            // 4  , 3
                            OSM(MOD_LSFT), KC_LCTL, // TODO: remap key to something useful (maybe LSHFT)
                            // 6, 5
-                           KC_RWIN, TT(_POG), 
+                           KC_RWIN, TT(_POG),
     // right hand
-                     XXXXXXX, KC_EQUAL, KC_RPRN,            KC_RCBR,            KC_RBRC,   KC_ASTR,               KC_EXCLAIM,
-                     KC_END,  KC_J,     KC_L,               KC_U,               KC_Y,      KC_MINUS,              KC_BSLS,
+                     TG(_GAMING), KC_EQUAL, KC_RPRN,            KC_RCBR,            KC_RBRC,   KC_ASTR,               KC_EXCLAIM,
+                     KC_END,      KC_J,     KC_L,               KC_U,               KC_Y,      KC_MINUS,              KC_BSLS,
                                                                                // TODO: Need to add back media layer here
                      TT(_FN), KC_M,     MT(MOD_LALT, KC_N), LT(_POG, KC_E),     KC_I,      KC_O,                  LT(_POG, KC_SCLN),
                               KC_K,     KC_H,               KC_COMM,            KC_DOT,    MT(MOD_LGUI, KC_SLSH), OSM(MOD_RSFT),
                                         KC_UP,              KC_DOWN,            KC_SLSH,   KC_AT,
         // 1  , 2
         KC_SPC, KC_LGUI,
-        KC_ENT, KC_UP, 
+        KC_ENT, KC_UP,
         KC_RCTL, KC_DOWN),
 /* Keymap 1: Symbol Layer
  *
@@ -187,7 +185,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_POG] = LAYOUT_5x7(
   // left hand
    _______,   KC_F1,     KC_F2,     KC_F3,    KC_F4,     KC_F5,    _______,
-   _______,   S_FALSE,   _______,   KC_LCBR,  KC_RCBR,   _______,  _______,
+   _______,   S_FALSE,   KC_NUM,    KC_LCBR,  KC_RCBR,   _______,  _______,
    _______,   S_TRUE ,   KC_EQL ,   KC_LPRN,  KC_RPRN,   _______,  _______,
    _______,   _______,   KC_UNDS,   KC_LBRC,  KC_RBRC,   _______,
    KC_MSTP,   KC_MPLY,   KC_MPRV,   KC_MNXT,
@@ -224,6 +222,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______,
         _______, _______),
 
+[_GAMING] = LAYOUT_5x7(
+   // left hand
+   KC_ESC,          KC_1,                  KC_1,                  KC_2,   KC_3,                 KC_4,   KC_5,
+   KC_TAB,          KC_TAB,                KC_Q,                  KC_W,   KC_E,                 KC_R,   KC_T,
+   KC_CAPS,         OSM(MOD_LSFT),         KC_A,                  KC_S,   KC_D,                 KC_F,   KC_G,
+   OSM(MOD_LSFT),   KC_Z,                  KC_X,                  KC_C,   KC_V,                 KC_B,
+   KC_Z,            KC_DOLLAR,             KC_LEFT,               KC_RGHT,
+                           // 2   , 1
+                           KC_LALT, KC_SPC,
+                           // 4  , 3
+                           KC_LCTL, KC_LALT, // TODO: remap key to something useful (maybe LSHFT)
+                           // 6, 5
+                           KC_RWIN, KC_G,
+        // right hand
+                     TG(_GAMING), KC_EQUAL, KC_RPRN,            KC_RCBR,            KC_RBRC,   KC_ASTR,               KC_EXCLAIM,
+                     KC_END,      KC_J,     KC_L,               KC_U,               KC_Y,      KC_MINUS,              KC_BSLS,
+                                                                               // TODO: Need to add back media layer here
+                     TT(_FN), KC_M,     MT(MOD_LALT, KC_N), LT(_POG, KC_E),     KC_I,      KC_O,                  LT(_POG, KC_SCLN),
+                              KC_K,     KC_H,               KC_COMM,            KC_DOT,    MT(MOD_LGUI, KC_SLSH), OSM(MOD_RSFT),
+                                        KC_UP,              KC_DOWN,            KC_SLSH,   KC_AT,
+        // 1  , 2
+        KC_SPC, KC_LGUI,
+        KC_ENT, KC_UP,
+        KC_RCTL, KC_DOWN),
+
 [_NUMPAD] = LAYOUT_5x7(
   // left hand
    _______,   _______,   _______,   _______,   _______,   _______,  _______,
@@ -243,5 +266,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______,
         _______, _______,
         _______, _______),
+/* Keymap 1: Symbol Layer
+ *
+ * ,--------------------------------------------------.           ,--------------------------------------------------.
+ * |        |  F1  |  F2  |  F3  |  F4  |  F5  |      |           |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
+ * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+ * |        |false |      |   {  |   }  |      |      |           |      |   Up |   7  |   8  |   9  |   *  |   F12  |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |true  |   =  |   (  |   )  |      |------|           |------| Down |   4  |   5  |   6  |   +  |        |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |      |   _  |   [  |   ]  |      |      |           |      |   &  |   1  |   2  |   3  |   \  |        |
+ * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   |      |      |      |      |      |                                       |      |    . |   0  |   =  |      |
+ *   `----------------------------------'                                       `----------------------------------'
+ *                                        ,-------------.       ,-------------.
+ *                                        |      |      |       |      |      |
+ *                                 ,------|------|------|       |------+------+------.
+ *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      |------|       |------|      |      |
+ *                                 |      |      |      |       |      |      |      |
+ *                                 `--------------------'       `--------------------'
+ */
 
 };
