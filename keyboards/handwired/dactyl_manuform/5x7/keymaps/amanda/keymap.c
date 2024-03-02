@@ -31,16 +31,16 @@
 #define MOD_CSHF MOD_LCTL | MOD_LSFT
 // #define MOD_OVERRIDE (MOD_BIT(KC_LSFT) | MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT))
 
-const key_override_t plus_key_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_PLUS, KC_P1, (1 << _QWERTY));
-const key_override_t n2_key_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_LBRC, KC_P2, (1 << _QWERTY));
-const key_override_t n3_key_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_LCBR, KC_P3, (1 << _QWERTY));
-const key_override_t n4_key_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_LPRN, KC_P4, (1 << _QWERTY));
-const key_override_t n5_key_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_AMPR, KC_P5, (1 << _QWERTY));
-const key_override_t eq_key_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_EQUAL, KC_P6, (1 << _QWERTY));
-const key_override_t n7_key_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_RPRN, KC_P7, (1 << _QWERTY));
-const key_override_t n8_key_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_RCBR, KC_P8, (1 << _QWERTY));
-const key_override_t n9_key_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_RBRC, KC_P9, (1 << _QWERTY));
-const key_override_t n0_key_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_ASTR, KC_P0, (1 << _QWERTY));
+const key_override_t plus_key_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_P1, KC_PLUS, (1 << _QWERTY));
+const key_override_t n2_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P2, KC_LBRC, (1 << _QWERTY));
+const key_override_t n3_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P3, KC_LCBR, (1 << _QWERTY));
+const key_override_t n4_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P4, KC_LPRN, (1 << _QWERTY));
+const key_override_t n5_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P5, KC_AMPR, (1 << _QWERTY));
+const key_override_t eq_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P6, KC_EQUAL, (1 << _QWERTY));
+const key_override_t n7_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P7, KC_RPRN, (1 << _QWERTY));
+const key_override_t n8_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P8, KC_RCBR, (1 << _QWERTY));
+const key_override_t n9_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P9, KC_RBRC, (1 << _QWERTY));
+const key_override_t n0_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P0, KC_ASTR, (1 << _QWERTY));
 const key_override_t exclam_prcnt_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_EXCLAIM, KC_PERC, ((1 << _QWERTY) | (1 << _VIMNAV)));
 const key_override_t dollar_grave_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_DOLLAR, KC_GRAVE, ((1 << _QWERTY) | (1 << _VIMNAV)));
 const key_override_t BSLS_hash_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_BSLS, KC_HASH, ((1 << _QWERTY) | (1 << _VIMNAV)));
@@ -118,7 +118,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_QWERTY] = LAYOUT_5x7(
    // left hand
-   KC_PIPE,                KC_PLUS,               KC_LBRC,               KC_LCBR,    KC_LPRN,              KC_AMPR,   QK_BOOT,
+   // KC_PIPE,                KC_PLUS,               KC_LBRC,               KC_LCBR,    KC_LPRN,              KC_AMPR,   QK_BOOT,
+   KC_PIPE,                KC_P1,                 KC_P2,                 KC_P3,      KC_P4,                KC_P5,     QK_BOOT,
    KC_TAB,                 KC_Q,                  KC_W,                  KC_F,       KC_P,                 KC_B,      KC_HOME,
    LT(_VIMNAV, KC_ESC),    KC_A,                  KC_R,                  KC_S,       MT(MOD_LALT, KC_T),   KC_G,      KC_QUOT,
    OSM(MOD_LSFT),          MT(MOD_CSHF, KC_Z),    LT(_POG , KC_X),       KC_C,       KC_D,                 KC_V,
@@ -126,20 +127,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                            // 2   , 1
                            MO(_VIMNAV), KC_BSPC,
                            // 4  , 3
-                           OSM(MOD_LSFT), KC_LCTL, // TODO: remap key to something useful (maybe LSHFT)
+                           OSM(MOD_LSFT), KC_LCTL,
                            // 6, 5
                            KC_RWIN, TT(_POG),
     // right hand
-                     TG(_GAMING), KC_EQUAL, KC_RPRN,            KC_RCBR,            KC_RBRC,   KC_ASTR,               KC_EXCLAIM,
+                     TG(_GAMING), KC_P6,    KC_P7,              KC_P8,              KC_P9,     KC_P0,                 KC_EXCLAIM,
                      KC_END,      KC_J,     KC_L,               KC_U,               KC_Y,      KC_MINUS,              KC_BSLS,
-                                                                               // TODO: Need to add back media layer here
-                     TT(_FN), KC_M,     MT(MOD_LALT, KC_N), LT(_POG, KC_E),     KC_I,      KC_O,                  LT(_POG, KC_SCLN),
-                              KC_K,     KC_H,               KC_COMM,            KC_DOT,    MT(MOD_LGUI, KC_SLSH), OSM(MOD_RSFT),
-                                        KC_UP,              KC_DOWN,            KC_SLSH,   KC_AT,
-        // 1  , 2
-        KC_SPC, KC_LGUI,
-        KC_ENT, KC_UP,
-        KC_RCTL, KC_DOWN),
+                     TT(_FN),     KC_M,     MT(MOD_LALT, KC_N), LT(_POG, KC_E),     KC_I,      KC_O,                  LT(_POG, KC_SCLN),
+                                  KC_K,     KC_H,               KC_COMM,            KC_DOT,    MT(MOD_LGUI, KC_SLSH), OSM(MOD_RSFT),
+                                            KC_UP,              KC_DOWN,            KC_SLSH,   KC_AT,
+                    // 1  , 2
+                    KC_SPC, KC_LGUI,
+                    KC_ENT, KC_UP,
+                    KC_RCTL, KC_DOWN),
 /* Keymap 1: Symbol Layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
@@ -147,9 +147,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |        |false |      |   {  |   }  |      |      |           |      |   Up |   7  |   8  |   9  |   *  |   F12  |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |true  |   =  |   (  |   )  |      |------|           |------| Down |   4  |   5  |   6  |   +  |        |
+ * |        |true  |   =  |   (  |   )  |   &  |------|           |------| Down |   4  |   5  |   6  |   +  |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      |   _  |   [  |   ]  |      |      |           |      |   &  |   1  |   2  |   3  |   \  |        |
+ * |        |      |   _  |   [  |   ]  |      |      |           |      |   ,  |   1  |   2  |   3  |   \  |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |      |      |      |      |      |                                       |      |    . |   0  |   =  |      |
  *   `----------------------------------'                                       `----------------------------------'
@@ -186,7 +186,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // left hand
    _______,   KC_F1,     KC_F2,     KC_F3,    KC_F4,     KC_F5,    _______,
    _______,   S_FALSE,   KC_NUM,    KC_LCBR,  KC_RCBR,   _______,  _______,
-   _______,   S_TRUE ,   KC_EQL ,   KC_LPRN,  KC_RPRN,   _______,  _______,
+   _______,   S_TRUE ,   KC_EQL ,   KC_LPRN,  KC_RPRN,   KC_AMPR,  _______,
    _______,   _______,   KC_UNDS,   KC_LBRC,  KC_RBRC,   _______,
    KC_MSTP,   KC_MPLY,   KC_MPRV,   KC_MNXT,
                                _______, _______,
@@ -238,14 +238,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
                      TG(_GAMING), KC_EQUAL, KC_RPRN,            KC_RCBR,            KC_RBRC,   KC_ASTR,               KC_EXCLAIM,
                      KC_END,      KC_J,     KC_L,               KC_U,               KC_Y,      KC_MINUS,              KC_BSLS,
-                                                                               // TODO: Need to add back media layer here
-                     TT(_FN), KC_M,     MT(MOD_LALT, KC_N), LT(_POG, KC_E),     KC_I,      KC_O,                  LT(_POG, KC_SCLN),
-                              KC_K,     KC_H,               KC_COMM,            KC_DOT,    MT(MOD_LGUI, KC_SLSH), OSM(MOD_RSFT),
-                                        KC_UP,              KC_DOWN,            KC_SLSH,   KC_AT,
-        // 1  , 2
-        KC_SPC, KC_LGUI,
-        KC_ENT, KC_UP,
-        KC_RCTL, KC_DOWN),
+                     TT(_FN),     KC_M,     MT(MOD_LALT, KC_N), LT(_POG, KC_E),     KC_I,      KC_O,                  LT(_POG, KC_SCLN),
+                                  KC_K,     KC_H,               KC_COMM,            KC_DOT,    MT(MOD_LGUI, KC_SLSH), OSM(MOD_RSFT),
+                                            KC_UP,              KC_DOWN,            KC_SLSH,   KC_AT,
+                           // 1  , 2
+                           KC_SPC, KC_LGUI,
+                           KC_ENT, KC_UP,
+                           KC_RCTL, KC_DOWN),
 
 [_NUMPAD] = LAYOUT_5x7(
   // left hand
@@ -271,7 +270,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |        |  F1  |  F2  |  F3  |  F4  |  F5  |      |           |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |false |      |   {  |   }  |      |      |           |      |   Up |   7  |   8  |   9  |   *  |   F12  |
+ * |        |false | NUM  |   {  |   }  |      |      |           |      |   Up |   7  |   8  |   9  |   *  |   F12  |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |true  |   =  |   (  |   )  |      |------|           |------| Down |   4  |   5  |   6  |   +  |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
