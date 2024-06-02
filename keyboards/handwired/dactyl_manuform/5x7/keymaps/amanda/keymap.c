@@ -31,16 +31,16 @@
 #define MOD_CSHF MOD_LCTL | MOD_LSFT
 // #define MOD_OVERRIDE (MOD_BIT(KC_LSFT) | MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT))
 
-const key_override_t plus_key_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_P1, KC_PLUS, (1 << _QWERTY));
-const key_override_t n2_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P2, KC_LBRC, (1 << _QWERTY));
-const key_override_t n3_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P3, KC_LCBR, (1 << _QWERTY));
-const key_override_t n4_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P4, KC_LPRN, (1 << _QWERTY));
-const key_override_t n5_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P5, KC_AMPR, (1 << _QWERTY));
-const key_override_t eq_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P6, KC_EQUAL, (1 << _QWERTY));
-const key_override_t n7_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P7, KC_RPRN, (1 << _QWERTY));
-const key_override_t n8_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P8, KC_RCBR, (1 << _QWERTY));
-const key_override_t n9_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P9, KC_RBRC, (1 << _QWERTY));
-const key_override_t n0_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_P0, KC_ASTR, (1 << _QWERTY));
+const key_override_t plus_key_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_PLUS, KC_1, (1 << _QWERTY));
+const key_override_t n2_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_LBRC, KC_2, (1 << _QWERTY));
+const key_override_t n3_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_LCBR, KC_3, (1 << _QWERTY));
+const key_override_t n4_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_LPRN, KC_4, (1 << _QWERTY));
+const key_override_t n5_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_AMPR, KC_5, (1 << _QWERTY));
+const key_override_t eq_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_EQUAL, KC_6, (1 << _QWERTY));
+const key_override_t n7_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_RPRN, KC_7, (1 << _QWERTY));
+const key_override_t n8_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_RCBR, KC_8, (1 << _QWERTY));
+const key_override_t n9_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_RBRC, KC_9, (1 << _QWERTY));
+const key_override_t n0_key_override =   ko_make_with_layers(MOD_MASK_SHIFT, KC_ASTR, KC_0, (1 << _QWERTY));
 const key_override_t exclam_prcnt_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_EXCLAIM, KC_PERC, ((1 << _QWERTY) | (1 << _VIMNAV)));
 const key_override_t dollar_grave_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_DOLLAR, KC_GRAVE, ((1 << _QWERTY) | (1 << _VIMNAV)));
 const key_override_t BSLS_hash_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_BSLS, KC_HASH, ((1 << _QWERTY) | (1 << _VIMNAV)));
@@ -105,11 +105,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|  '"  |           | FN   |------+------+------+------+------+--------|
  * | LShift | Z:CS | X:POG|   C  |   D  |   V  |      |           |      |   K  |   H  |   ,  |   .  |//LGUI| RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |NUMPAD|  $   | Left | Right|      |                                       |      | Up   | Down |  /   |   @/^  |
+ *   |NUMPAD|  $   | Left | Right|      |                                       |      | Up   | Down |  @/^ |   POG  |
  *   `----------------------------------'                                       `------------------------------------'
  *
  *                                .--------------------.         .--------------------.
- *                                | BSPC | LCTRL| POG  |         | RCTRL| ENTER| SPC  |
+ *                                | BSPC | LCTRL| POG  |         | LCTRL| ENTER| SPC  |
  *                                |------|------|------|         |------|------|------|
  *                                | VIM  |LShift| RWIN |         | DOWN |  UP  | LGUI |
  *                                ----------------------         ----------------------
@@ -118,12 +118,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_QWERTY] = LAYOUT_5x7(
    // left hand
-   // KC_PIPE,                KC_PLUS,               KC_LBRC,               KC_LCBR,    KC_LPRN,              KC_AMPR,   QK_BOOT,
-   KC_PIPE,                KC_P1,                 KC_P2,                 KC_P3,      KC_P4,                KC_P5,     QK_BOOT,
-   KC_TAB,                 KC_Q,                  KC_W,                  KC_F,       KC_P,                 KC_B,      KC_HOME,
-   LT(_VIMNAV, KC_ESC),    KC_A,                  KC_R,                  KC_S,       MT(MOD_LALT, KC_T),   KC_G,      KC_QUOT,
-   OSM(MOD_LSFT),          MT(MOD_CSHF, KC_Z),    LT(_POG , KC_X),       KC_C,       KC_D,                 KC_V,
-   TT(_NUMPAD),            KC_DOLLAR,             KC_LEFT,               KC_RGHT,
+   KC_PIPE,                KC_PLUS,               KC_LBRC,                 KC_LCBR,    KC_LPRN,              KC_AMPR,   XXXXXXX,
+   KC_TAB,                 KC_Q,                  KC_W,                    KC_F,       KC_P,                 KC_B,      KC_HOME,
+   LT(_VIMNAV, KC_ESC),    KC_A,                  KC_R,                    KC_S,       MT(MOD_LALT, KC_T),   KC_G,      KC_QUOT,
+   OSM(MOD_LSFT),          MT(MOD_CSHF, KC_Z),    LT(_NUMPAD, KC_X),       KC_C,       KC_D,                 KC_V,
+   TT(_NUMPAD),            KC_DOLLAR,             KC_LEFT,                 KC_RGHT,
                            // 2   , 1
                            MO(_VIMNAV), KC_BSPC,
                            // 4  , 3
@@ -131,15 +130,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                            // 6, 5
                            KC_RWIN, TT(_POG),
     // right hand
-                     TG(_GAMING), KC_P6,    KC_P7,              KC_P8,              KC_P9,     KC_P0,                 KC_EXCLAIM,
+                     TG(_GAMING), KC_EQUAL, KC_RPRN,            KC_RCBR,            KC_RBRC,   KC_ASTR,               KC_EXCLAIM,
                      KC_END,      KC_J,     KC_L,               KC_U,               KC_Y,      KC_MINUS,              KC_BSLS,
-                     TT(_FN),     KC_M,     MT(MOD_LALT, KC_N), LT(_POG, KC_E),     KC_I,      KC_O,                  LT(_POG, KC_SCLN),
+                     TT(_FN),     KC_M,     MT(MOD_LALT, KC_N), LT(_POG, KC_E),     KC_I,      KC_O,                  KC_SCLN,
                                   KC_K,     KC_H,               KC_COMM,            KC_DOT,    MT(MOD_LGUI, KC_SLSH), OSM(MOD_RSFT),
-                                            KC_UP,              KC_DOWN,            KC_SLSH,   KC_AT,
+                                                                KC_UP,              KC_DOWN,   KC_AT,                 MO(_POG),
                     // 1  , 2
                     KC_SPC, KC_LGUI,
                     KC_ENT, KC_UP,
-                    KC_RCTL, KC_DOWN),
+                    KC_LCTL, KC_DOWN),
 /* Keymap 1: Symbol Layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
@@ -181,7 +180,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______,
         _______, _______),
 
-
 [_POG] = LAYOUT_5x7(
   // left hand
    _______,   KC_F1,     KC_F2,     KC_F3,    KC_F4,     KC_F5,    _______,
@@ -194,17 +192,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                _______, _______,
         // right hand
                      _______,   KC_F6,     KC_F7,     KC_F8,     KC_F9,     KC_F10,    KC_F11,
-                     _______,   KC_UP,     KC_P7,     KC_P8,     KC_P9,     KC_ASTR,   _______,
-                     _______,   KC_DOWN,   KC_P4,     KC_P5,     KC_P6,     KC_PPLS,   _______,
-                                KC_COMM,   KC_P1,     KC_P2,     KC_P3,     KC_PMNS,   _______,
-                                                      KC_P0,     KC_PDOT,   _______,   _______,
+                     _______,   _______,   _______,   _______,   _______,   _______,   _______,
+                     _______,   _______,   _______,   _______,   _______,   _______,   _______,
+                                _______,   _______,   _______,   _______,   _______,   _______,
+                                                      _______,   _______,   _______,   _______,
         _______, _______,
         _______, _______,
         _______, _______),
 
 [_FN] = LAYOUT_5x7(
   // left hand
-   _______,   KC_F1,     KC_F2,      KC_F3,    KC_F4,     KC_F5,    KC_F6,
+   _______,   KC_F1,     KC_F2,      KC_F3,    KC_F4,     KC_F5,    QK_BOOT,
    _______,   _______,   _______,    KC_UP,    _______,   KC_PGUP,  _______,
    _______,   _______,   KC_LEFT,    KC_DOWN,  KC_RGHT,   KC_PGDN,  _______,
    _______,   _______,   _______,   _______,   _______,   _______,
@@ -213,7 +211,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                _______, _______,
                                _______, _______,
         // right hand
-                     KC_F7,     KC_F8,     KC_F9,     KC_F10,    KC_F11,    KC_F12,    _______,
+                     _______,   KC_F6,     KC_F7,     KC_F8,     KC_F9,     KC_F10,    KC_F11,
                      _______,   _______,   _______,   _______,   _______,   _______,   _______,
                      _______,   _______,   _______,   _______,   _______,   _______,   _______,
                                 _______,   _______,   _______,   _______,   _______,   _______,
@@ -227,24 +225,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_ESC,          KC_1,                  KC_1,                  KC_2,   KC_3,                 KC_4,   KC_5,
    KC_TAB,          KC_TAB,                KC_Q,                  KC_W,   KC_E,                 KC_R,   KC_T,
    KC_CAPS,         OSM(MOD_LSFT),         KC_A,                  KC_S,   KC_D,                 KC_F,   KC_G,
-   OSM(MOD_LSFT),   KC_Z,                  KC_X,                  KC_C,   KC_V,                 KC_B,
+   KC_LCTL,         KC_Z,                  KC_X,                  KC_C,   KC_V,                 KC_B,
    KC_Z,            KC_DOLLAR,             KC_LEFT,               KC_RGHT,
                            // 2   , 1
                            KC_LALT, KC_SPC,
                            // 4  , 3
-                           KC_LCTL, KC_LALT, // TODO: remap key to something useful (maybe LSHFT)
+                           KC_LCTL, KC_LALT,
                            // 6, 5
                            KC_RWIN, KC_G,
         // right hand
                      TG(_GAMING), KC_EQUAL, KC_RPRN,            KC_RCBR,            KC_RBRC,   KC_ASTR,               KC_EXCLAIM,
                      KC_END,      KC_J,     KC_L,               KC_U,               KC_Y,      KC_MINUS,              KC_BSLS,
-                     TT(_FN),     KC_M,     MT(MOD_LALT, KC_N), LT(_POG, KC_E),     KC_I,      KC_O,                  LT(_POG, KC_SCLN),
+                     TT(_FN),     KC_M,     MT(MOD_LALT, KC_N), LT(_POG, KC_E),     KC_I,      KC_O,                  KC_SCLN,
                                   KC_K,     KC_H,               KC_COMM,            KC_DOT,    MT(MOD_LGUI, KC_SLSH), OSM(MOD_RSFT),
-                                            KC_UP,              KC_DOWN,            KC_SLSH,   KC_AT,
+                                                                KC_UP,              KC_DOWN,   KC_AT,                 MO(_POG),
                            // 1  , 2
                            KC_SPC, KC_LGUI,
                            KC_ENT, KC_UP,
-                           KC_RCTL, KC_DOWN),
+                           KC_LCTL, KC_DOWN),
 
 [_NUMPAD] = LAYOUT_5x7(
   // left hand
@@ -257,11 +255,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                _______, _______,
                                _______, _______,
         // right hand
-                     _______,   _______,   KC_NUM,   _______,   KC_PMNS,   KC_PPLS,   _______,
+                     _______,   _______,   KC_NUM,   _______,    KC_PMNS,   KC_PPLS,   _______,
                      _______,   _______,   KC_P7,     KC_P8,     KC_P9,     KC_ASTR,   _______,
                      _______,   _______,   KC_P4,     KC_P5,     KC_P6,     KC_PPLS,   _______,
                                 KC_COMM,   KC_P1,     KC_P2,     KC_P3,     KC_PMNS,   _______,
-                                                      KC_P0,     KC_PDOT,   _______,   _______,
+                                                      KC_P0,     KC_PDOT,   KC_SLSH,   _______,
         _______, _______,
         _______, _______,
         _______, _______),
