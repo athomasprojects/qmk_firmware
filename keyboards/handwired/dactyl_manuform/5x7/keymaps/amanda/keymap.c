@@ -137,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // right hand
                      TG(_GAMING), KC_EQUAL, KC_RPRN,            KC_RCBR,            KC_RBRC,   KC_ASTR,               KC_EXCLAIM,
                      KC_END,      KC_J,     KC_L,               KC_U,               KC_Y,      KC_MINUS,              KC_BSLS,
-                     TT(_FN),     KC_M,     MT(MOD_LALT, KC_N), KC_E,               KC_I,      KC_O,                  KC_SCLN,
+                     TT(_FN),     KC_M,     MT(MOD_LALT, KC_N), LT(_POG, KC_E),     KC_I,      KC_O,                  KC_SCLN,
                                   KC_K,     KC_H,               KC_COMM,            KC_DOT,    MT(MOD_LGUI, KC_SLSH), OSM(MOD_RSFT),
                                                                 KC_UP,              KC_DOWN,   KC_AT,                 MO(_POG), // 1  , 2
                     KC_SPC, KC_LGUI,
