@@ -3,6 +3,8 @@
 // This will generate a .uf2 file in the .build directory at the top level where the repo is cloned.
 // To flash the remaps, enter boot mode on the keyboard, then copy the .uf2 file to the keyboard's microcontroller after it pops up as an ejectable device.
 //
+// Run `nix-shell -p qmk --command fish` to enter a dev shell with qmk installed and our fish shell config loaded so that we have our usual shortcuts and aliases available.
+//
 // TODO:
 // - I want something better for hitting esc, I don't think I like having it on my thumb here.
 // - I want to explore using leader.
