@@ -1,3 +1,8 @@
+// NOTE: to compile the keymap run
+// `qmk compile -kb handwired/dactyl_manuform/5x7 -km amanda -e CONVERT_TO=promicro_rp2040`
+// This will generate a .uf2 file in the .build directory at the top level where the repo is cloned.
+// To flash the remaps, enter boot mode on the keyboard, then copy the .uf2 file to the keyboard's microcontroller after it pops up as an ejectable device.
+//
 // TODO:
 // - I want something better for hitting esc, I don't think I like having it on my thumb here.
 // - I want to explore using leader.
@@ -134,11 +139,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                      KC_END,      KC_J,     KC_L,               KC_U,               KC_Y,      KC_MINUS,              KC_BSLS,
                      TT(_FN),     KC_M,     MT(MOD_LALT, KC_N), KC_E,               KC_I,      KC_O,                  KC_SCLN,
                                   KC_K,     KC_H,               KC_COMM,            KC_DOT,    MT(MOD_LGUI, KC_SLSH), OSM(MOD_RSFT),
-                                                                KC_UP,              KC_DOWN,   KC_AT,                 MO(_POG),
-                    // 1  , 2
+                                                                KC_UP,              KC_DOWN,   KC_AT,                 MO(_POG), // 1  , 2
                     KC_SPC, KC_LGUI,
                     KC_ENT, MO(_POG),
-                    KC_LCTL, MT(MOD_LALT, KC_CAPS),
+                    KC_LCTL, MT(MOD_LALT, KC_CAPS)),
 /* Keymap 1: Symbol Layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
