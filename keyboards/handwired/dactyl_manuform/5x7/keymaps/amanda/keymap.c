@@ -169,7 +169,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_VIMNAV] = LAYOUT_5x7(
   // left hand
    _______,   KC_1,      KC_2,      KC_3,     KC_4,      KC_5,     _______,
-   _______,   _______,   _______,   _______,  _______,   _______,  KC_INS,
+   _______,   _______,   _______,   _______,  _______,   _______,  _______,
    _______,   _______ ,  _______,   _______,  _______,   _______,  _______,
    _______,   _______,   _______,   _______,  _______,   _______,
    _______,   _______,   _______,   _______,
@@ -178,7 +178,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                _______, _______,
    // right hand
                 _______,   KC_6,      KC_7,      KC_8,      KC_9,      KC_0,      _______,
-                KC_DEL,    KC_TILDE,  _______,   _______,   _______,   _______,   _______,
+                _______,   KC_TILDE,  _______,   _______,   _______,   _______,   _______,
                 _______,   KC_H,      KC_J,      KC_K,      KC_L,      _______,   _______,
                            _______,   _______,   _______,   _______,   _______,   _______,
                                                  _______,   _______,   _______,   _______,
@@ -189,9 +189,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_POG] = LAYOUT_5x7(
   // left hand
    _______,   KC_F1,     KC_F2,     KC_F3,    KC_F4,     KC_F5,    _______,
-   _______,   S_FALSE,   KC_NUM,    KC_LCBR,  KC_RCBR,   _______,  _______,
-   _______,   S_TRUE ,   KC_EQL ,   KC_LPRN,  KC_RPRN,   KC_AMPR,  _______,
-   _______,   _______,   KC_UNDS,   KC_LBRC,  KC_RBRC,   _______,
+   _______,   S_FALSE,   KC_NUM,    KC_LCBR,  KC_RCBR,   KC_INS,   _______,
+   _______,   S_TRUE ,   KC_EQL ,   KC_LPRN,  KC_RPRN,   KC_DEL,   _______,
+   _______,   _______,   KC_UNDS,   KC_LBRC,  KC_RBRC,   KC_AMPR,
    KC_MSTP,   KC_MPLY,   KC_MPRV,   KC_MNXT,
                                _______, _______,
                                _______, _______,
