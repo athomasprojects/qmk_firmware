@@ -11,7 +11,7 @@
 // If you press a Mod Tap key, tap another key (press and release) and then
 // release the Mod Tap key, all within the tapping term, it will output the
 // tapping function for both keys.
-// #define PERMISSIVE_HOLD
+#define PERMISSIVE_HOLD
 
 // This is specific to how I plug in my keyb?...
 //  So I could plug it in to the right side if I wanted to.
