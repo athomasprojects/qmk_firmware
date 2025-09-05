@@ -1,5 +1,5 @@
-// NOTE: to compile the keymap run
-// `qmk compile -kb handwired/dactyl_manuform/5x7 -km amanda -e CONVERT_TO=promicro_rp2040`
+// NOTE: to compile the keymap run:
+// `qmk compile -kb handwired/dactyl_manuform/5x7 -km amanda -e CONVERT_TO=rp2040_ce`
 // This will generate a .uf2 file in the .build directory at the top level where the repo is cloned.
 // To flash the remaps, enter boot mode on the keyboard, then copy the .uf2 file to the keyboard's microcontroller after it pops up as an ejectable device.
 //
@@ -41,6 +41,7 @@
 #define TAB_RO  LCTL(LSFT(KC_T))
 
 #define MOD_CSHF MOD_LCTL | MOD_LSFT
+#define MOD_CA MOD_LCTL | MOD_LALT
 // #define MOD_OVERRIDE (MOD_BIT(KC_LSFT) | MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT))
 
 // const key_override_t plus_key_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_PLUS, KC_1, (1 << _QWERTY));
@@ -57,26 +58,26 @@
 // const key_override_t dollar_grave_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_DOLLAR, KC_GRAVE, ((1 << _QWERTY) | (1 << _VIMNAV)));
 // const key_override_t BSLS_hash_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_BSLS, KC_HASH, ((1 << _QWERTY) | (1 << _VIMNAV)));
 // const key_override_t at_carat_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_AT, KC_CIRC, ((1 << _QWERTY) | (1 << _VIMNAV)));
-const key_override_t at_carat_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_AT, KC_CIRC, (1 << _QWERTY));
+// const key_override_t at_carat_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_AT, KC_CIRC, (1 << _QWERTY));
 
 // This globally defines all key overrides to be used
-const key_override_t **key_overrides = (const key_override_t *[]){
-    // &plus_key_override,
-    // &n2_key_override,
-    // &n3_key_override,
-    // &n4_key_override,
-    // &n5_key_override,
-    // &eq_key_override,
-    // &n7_key_override,
-    // &n8_key_override,
-    // &n9_key_override,
-    // &n0_key_override,
-    // &exclam_prcnt_override,
-    // &dollar_grave_override,
-    // &BSLS_hash_override,
-    &at_carat_override,
-    NULL // Null terminate the array of overrides!
-};
+// const key_override_t **key_overrides = (const key_override_t *[]){
+//     &plus_key_override,
+//     &n2_key_override,
+//     &n3_key_override,
+//     &n4_key_override,
+//     &n5_key_override,
+//     &eq_key_override,
+//     &n7_key_override,
+//     &n8_key_override,
+//     &n9_key_override,
+//     &n0_key_override,
+//     &exclam_prcnt_override,
+//     &dollar_grave_override,
+//     &BSLS_hash_override,
+//     &at_carat_override,
+//     NULL // Null terminate the array of overrides!
+// };
 
 
 enum custom_keycodes {
@@ -138,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+---------+----------+------+------+------|  INS |          | FN   |------+------+------+------+------+--------|
  * | LShift | Z:LCTRL |  X:M_CS  |   C  |   V  |   B  |      |          |      |   M  |   N  |   ,  |   .  |//LGUI| RShift |
  * `--------+---------|----------+------+------+------+------'          `-------------+------+------+------+------+--------'
- *   |NUMPAD|  $   | Left | Right|      |                                       |      | Up   | Down |  @/^ |   POG  |
+ *   |NUMPAD|  $   | Left | Right|      |                                       |      | Up   | Down |  M_CA |   POG  |
  *   `----------------------------------'                                       `------------------------------------'
  *
  *                                .--------------------.         .-------------------------.
@@ -167,7 +168,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_RBRC,               KC_Y,     KC_U,               KC_I,               KC_O,      KC_P,                  KC_BSLS,
     TT(_FN),               KC_H,     MT(MOD_LALT, KC_J), LT(_POG, KC_K),     KC_L,      KC_SCLN,               KC_QUOT,
                            KC_M,     KC_N,               KC_COMM,            KC_DOT,    MT(MOD_LGUI, KC_SLSH), OSM(MOD_RSFT),
-                                                         KC_UP,              KC_DOWN,   KC_AT,                 MO(_POG), // 1  , 2
+                                                         KC_UP,              KC_DOWN,   MT(MOD_CA, KC_PLUS),                 MO(_POG), // 1  , 2
                            KC_SPC, KC_LGUI,                   // 2, 1
                            KC_ENT, MO(_POG),                  // 4, 3
                            KC_LCTL, MT(MOD_LALT, KC_CAPS)),   // 6, 5
