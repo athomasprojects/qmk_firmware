@@ -112,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  *  Old Colemak layout:
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   |    |  +/1  | [/2 | {/3  | (/4  |  &/5 | Reset|           |      | =/6  | )/7  | }/8  | }/9  | ast/0|  !/%   |
+ * |   |    |  +/1  | [/2 | {/3  | (/4  |  &/5 |      |           |      | =/6  | )/7  | }/8  | }/9  | ast/0|  !/%   |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Tab    |   Q  | W    |   F  |   P  |   B  | Home |           | End  |   J  |   L  |   U  |   Y  |   -  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -131,47 +131,46 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *
  *  Current Qwerty layout:
  * ,---------------------------------------------------------.          ,--------------------------------------------------.
- * |   Esc  |    1    |    2     |   3  |   4  |   5  | Reset|          |      |   6  |   7  |   8  |   9  |   0  |    -   |
+ * |   Esc  |    1    |    2     |   3  |   4  |   5  |      |          |Gaming|   6  |   7  |   8  |   9  |   0  |    -   |
  * |--------+---------+----------+------+------+------+------|          |------+------+------+------+------+------+--------|
  * |  Del   |   Q     |    W     |   E  |   R  |   T  |   [  |          |   ]  |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+---------+----------+------+------+------|      |          |      |------+------+------+------+------+--------|
- * |    `   |   A     |    S     |   D  | F/Alt|   G  |------|          |------|   H  | J/Alt| K/POG|   L  |   ;  | '"/POG |
- * |--------+---------+----------+------+------+------|  INS |          | FN   |------+------+------+------+------+--------|
+ * |    `   |   A     |    S     |   D  | F/Alt|   G  |------|          |------|   H  | J/Alt| K/POG|   L  |   ;  | '"     |
+ * |--------+---------+----------+------+------+------| Home |          | FN   |------+------+------+------+------+--------|
  * | LShift | Z:LCTRL |  X:M_CS  |   C  |   V  |   B  |      |          |      |   M  |   N  |   ,  |   .  |//LGUI| RShift |
  * `--------+---------|----------+------+------+------+------'          `-------------+------+------+------+------+--------'
- *   |NUMPAD|  $   | Left | Right|      |                                       |      | Up   | Down |  M_CA |   POG  |
+ *   |NUMPAD|     | Left | Right|      |                                       |      | Up   | Down |  M_CA |   POG  |
  *   `----------------------------------'                                       `------------------------------------'
  *
  *                                .--------------------.         .-------------------------.
  *                                | BSPC | LCTRL| POG  |         |   LCTRL   | ENTER| SPC  |  -- (1, 3, 5)
  *                                |------|------|------|         |-----------|------|------|
- *                                | Tab  |LShift| RWIN |         | LAlt/Caps | POG  | LGUI |  -- (2, 4, 6)
+ *                                | Del  |LShift| RWIN |         | LAlt/Caps | POG  | LGUI |  -- (2, 4, 6)
  *                                ----------------------         ---------------------------
  *
  *
  */
 [_QWERTY] = LAYOUT_5x7(
    // left hand
-   // KC_PIPE,                KC_PLUS,               KC_LBRC,                 KC_LCBR,    KC_LPRN,              KC_AMPR,   XXXXXXX,
-   KC_ESC,                 KC_1,                  KC_2,                    KC_3,       KC_4,                 KC_5,      XXXXXXX,
-   KC_DEL,                 KC_Q,                  KC_W,                    KC_E,       KC_R,                 KC_T,      KC_LBRC,
-   KC_GRV,                 KC_A,                  KC_S,                    KC_D,       MT(MOD_LALT, KC_F),   KC_G,      KC_INS,
-   OSM(MOD_LSFT),          MT(MOD_LCTL, KC_Z),    MT(MOD_CSHF, KC_X),      KC_C,       KC_V,                 KC_B,
-   TT(_NUMPAD),            KC_LGUI,               KC_LEFT,                 KC_RGHT,
+   KC_GRV,                 KC_1,                  KC_2,                    KC_3,       KC_4,                 KC_5,      XXXXXXX,
+   KC_TAB,                 KC_Q,                  KC_W,                    KC_E,       KC_R,                 KC_T,      KC_LBRC,
+   KC_ESC,                 KC_A,                  KC_S,                    KC_D,       MT(MOD_LALT, KC_F),   KC_G,      KC_HOME,
+   OSM(MOD_LSFT),          KC_Z,                  MT(MOD_CSHF, KC_X),      KC_C,       KC_V,                 KC_B,
+   TT(_NUMPAD),            KC_LCBR,               KC_LEFT,                 KC_RGHT,
 
-                           KC_TAB, KC_BSPC,          // 2, 1
+                           KC_DEL, KC_BSPC,          // 2, 1
                            OSM(MOD_LSFT), KC_LCTL,   // 4, 3
                            KC_RWIN, TT(_POG),        // 6, 5
     // right hand
-    // TG(_GAMING),           KC_EQUAL, KC_RPRN,            KC_RCBR,            KC_RBRC,   KC_ASTR,               KC_EXCLAIM,
     TG(_GAMING),           KC_6,     KC_7,               KC_8,               KC_9,      KC_0,                  KC_MINUS,
     KC_RBRC,               KC_Y,     KC_U,               KC_I,               KC_O,      KC_P,                  KC_BSLS,
     TT(_FN),               KC_H,     MT(MOD_LALT, KC_J), LT(_POG, KC_K),     KC_L,      KC_SCLN,               KC_QUOT,
                            KC_M,     KC_N,               KC_COMM,            KC_DOT,    MT(MOD_LGUI, KC_SLSH), OSM(MOD_RSFT),
-                                                         KC_UP,              KC_DOWN,   MT(MOD_CA, KC_PLUS),                 MO(_POG), // 1  , 2
+                                                         KC_UP,              KC_DOWN,   KC_RCBR,               MO(_POG),
                            KC_SPC, KC_LGUI,                   // 2, 1
                            KC_ENT, MO(_POG),                  // 4, 3
                            KC_LCTL, MT(MOD_LALT, KC_CAPS)),   // 6, 5
+
 /* Keymap 1: Symbol Layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
@@ -193,6 +192,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |      |      |       |      |      |      |
  *                                 `--------------------'       `--------------------'
  */
+
 // [_VIMNAV] = LAYOUT_5x7(
 //   // left hand
 //    _______,   KC_1,      KC_2,      KC_3,     KC_4,      KC_5,     _______,
@@ -216,9 +216,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_POG] = LAYOUT_5x7(
   // left hand
    _______,   KC_F1,     KC_F2,     KC_F3,    KC_F4,     KC_F5,    _______,
-   _______,   S_FALSE,   KC_NUM,    KC_LCBR,  KC_RCBR,   KC_INS,   _______,
-   _______,   S_TRUE ,   KC_EQL ,   KC_LPRN,  KC_RPRN,   KC_DEL,   _______,
-   _______,   _______,   KC_UNDS,   KC_LBRC,  KC_RBRC,   KC_AMPR,
+   _______,   S_FALSE,   KC_PLUS,   KC_LCBR,  KC_RCBR,   KC_INS,   KC_HOME,
+   _______,   S_TRUE ,   KC_EQL ,   KC_LPRN,  KC_RPRN,   KC_DEL,   KC_END,
+   _______,   _______,   KC_UNDS,   KC_LBRC,  KC_RBRC,   _______,
    KC_MSTP,   KC_MPLY,   KC_MPRV,   KC_MNXT,
                                _______, _______,
                                _______, _______,
