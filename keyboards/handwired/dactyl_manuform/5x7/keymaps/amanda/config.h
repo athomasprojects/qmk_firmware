@@ -13,6 +13,13 @@
 // tapping function for both keys.
 #define PERMISSIVE_HOLD
 
+// Time between cursor movements in milliseconds.
+#undef MOUSEKEY_INTERVAL
+#define MOUSEKEY_INTERVAL 16 // set to monitor refresh rate: (1 / 60Hz)
+
+// Pressing the Shift key continues Caps Word and inverts the shift state.
+#define CAPS_WORD_INVERT_ON_SHIFT
+
 // This is specific to how I plug in my keyb?...
 //  So I could plug it in to the right side if I wanted to.
 #define MASTER_LEFT
