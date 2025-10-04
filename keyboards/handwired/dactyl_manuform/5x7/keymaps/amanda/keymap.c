@@ -35,7 +35,8 @@
 #define TAB_RO  LCTL(LSFT(KC_T))
 
 #define MOD_CSHF MOD_LCTL | MOD_LSFT
-// #define MOD_CA MOD_LCTL | MOD_LALT
+#define MOD_CA MOD_LCTL | MOD_LALT
+#define MOD_SUPCSH MOD_LGUI | MOD_LCTL | MOD_LSFT
 // #define MOD_OVERRIDE (MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT))
 
 // const key_override_t plus_key_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_PLUS, KC_1, (1 << _QWERTY));
@@ -133,19 +134,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    OSM(MOD_LSFT),          MT(MOD_LCTL, KC_Z),     MT(MOD_CSHF, KC_X),      KC_C,       KC_V,                 KC_B,
    TT(_NUMPAD),            CW_TOGG,                KC_LEFT,                 KC_RGHT,
                            // Left thumb cluster:
-                           KC_LGUI,          KC_BSPC,  // 2, 1
-                           OSM(MOD_LSFT),    KC_LCTL,  // 4, 3
-                           KC_RWIN,          XXXXXXX,  // 6, 5
+                           KC_LGUI,          KC_BSPC,               // 2, 1
+                           OSM(MOD_LSFT),    KC_LCTL,               // 4, 3
+                           KC_RWIN,          MT(MOD_HYPR, KC_ESC),  // 6, 5
     // Right hand:
     TG(_GAMING),           KC_6,     KC_7,               KC_8,               KC_9,      KC_0,                  KC_MINUS,
-    XXXXXXX,               KC_Y,     KC_U,               KC_I,               KC_O,      KC_P,                  KC_BSLS,
-    KC_EQL,                KC_H,     MT(MOD_LALT, KC_J), LT(_POG, KC_K),     KC_L,      KC_SCLN,               KC_QUOT,
+    TG(_POG),              KC_Y,     KC_U,               KC_I,               KC_O,      KC_P,                  KC_BSLS,
+    KC_EQL,                KC_H,     MT(MOD_LALT, KC_J), LT(_POG, KC_K),     KC_L,      KC_SCLN,               MT(MOD_CA,KC_QUOT),
                            KC_N,     KC_M,               KC_COMM,            KC_DOT,    KC_SLSH,               OSM(MOD_RSFT),
                                                          KC_LBRC,            KC_RBRC,   XXXXXXX,               TT(_FN),
                            // Right thumb cluster:
-                           KC_SPC,     KC_DOWN,   // 1, 2
-                           KC_ENT,     KC_UP,     // 3, 4
-                           KC_LCTL,    KC_RALT),  // 5, 6
+                           KC_SPC,     KC_DOWN,                   // 1, 2
+                           KC_ENT,     KC_UP,                     // 3, 4
+                           KC_LCTL,    MT(MOD_SUPCSH, KC_CAPS)),  // 5, 6
 
 /* Keymap 1: Symbol Layer (_POG)
  *
